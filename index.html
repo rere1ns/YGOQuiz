@@ -2,14 +2,107 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>🥳</title>
+  <title>0文字テキスト変換</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="app.js"></script>
 </head>
-<body>
-  <h1>変換前</h1>
-  <textarea></textarea>
-  <h1>変換しない文字</h1>
-  <input type='text' />
-  <h1>変換後</h1>
-  <textarea></textarea>
+<body class="bg-gray-100">
+  <header class="bg-sky-800 py-5">
+    <h1 class="text-white text-3xl font-bold text-center">
+      0文字テキスト変換
+    </h1>    
+  </header>
+  <main class="m-5 p-5 bg-white rounded-lg shadow-md">
+    <section class="flex flex-col mb-3">
+      <label for="srcText" class="font-semibold text-2xl mb-1">変換前のテキスト</label>
+      <div class="flex justify-center">
+        <textarea
+          id="srcText"
+          class="border border-gray-500 rounded resize-none w-full mx-[1rem] px-2 py-1 h-48"
+        ></textarea>
+      </div>
+      <div class="flex justify-end mx-[1rem] mt-1">
+        <button 
+          class="p-2 bg-sky-800 text-white rounded hover:bg-sky-200 w-48 h-16"
+          onclick="handleClearClick(event)"
+        >
+          入力をクリア
+        </button>
+      </div>
+    </section>
+    <section class="">
+      <div class="flex flex-col mb-3">
+        <label for="excludeWords" class="font-semibold text-2xl mb-1">変換後に残す文字</label>
+        <div class="flex justify-center mb-1">
+          <input
+            id="excludeWords"
+            class="border border-gray-500 rounded w-full mx-[1rem] px-2 py-1"
+          />
+        </div>
+        <div class="grid grid-cols-2 mx-[1rem] ">
+          <div class="flex mb-2">
+            <div class="mr-8">
+              <input type="checkbox" id="keepLP" value="LP"/>
+              <label for="keepLP">「LP」をテキストに残す</label>
+            </div>
+            <div class="mr-8">
+              <input type="checkbox" id="keepEX" value="EX"/>
+              <label for="keepEX">「EX」をテキストに残す</label>
+            </div>
+            <div class="mr-8">
+              <input type="checkbox" id="keepNo" value="No."/>
+              <label for="keepNo">「No.」をテキストに残す</label>
+            </div>
+          </div>
+
+          <div class="row-span-2 flex justify-end">
+            <button 
+              class="p-2 bg-sky-800 text-white rounded hover:bg-sky-200 w-48 h-16"
+              onclick="handleResetClick(event)"
+            >
+              初期値に戻す
+            </button>
+          </div>
+
+          <div class="flex mb-1">
+            <div class="mr-8">
+              <input type="checkbox" id="newLineWithEffectNo"/>
+              <label for="newLineWithEffectNo">効果番号 (①～⑨) の手前で改行する</label>
+            </div>
+            <div class="mr-8">
+              <input type="checkbox" id="newLineWithPeriod"/>
+              <label for="newLineWithPeriod">句点 (。) で改行する</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="flex flex-col mb-1">
+      <label for="transformedText" class="font-semibold text-2xl mb-1">変換後のテキスト</label>
+      <div class="flex justify-center">
+        <textarea
+          id="transformedText"
+          class="border border-gray-500 rounded resize-none w-full mx-[1rem] px-2 py-1 h-48"
+          readonly
+        ></textarea>
+      </div>
+    </section>
+
+    <section>
+      <div class="flex justify-end mx-[1rem] ">
+          <div class="flex items-center mr-3">
+            <input type="checkbox" id="copyResult"/>
+            <label for="copyResult">変換結果をクリップボードにコピーする</label>
+          </div>
+          <button 
+            class="p-2 bg-sky-800 text-white rounded hover:bg-sky-200 w-48 h-16"
+            onclick="handleTransformClick(event)"
+          >
+            変換
+          </button>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
