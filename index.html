@@ -39,42 +39,42 @@
             class="border border-gray-500 rounded w-full mx-[1rem] px-2 py-1"
           />
         </div>
-        <div class="grid grid-cols-2 mx-[1rem] ">
+        <div class="mx-[1rem] ">
           <div class="flex mb-2">
-            <div class="mr-8">
+            <div class="mr-8 flex">
               <input type="checkbox" id="keepLP" value="LP"/>
-              <label for="keepLP">「LP」をテキストに残す</label>
+              <label for="keepLP" class="block w-[12rem]">「LP」をテキストに残す</label>
             </div>
-            <div class="mr-8">
+            <div class="mr-8 flex">
               <input type="checkbox" id="keepEX" value="EX"/>
-              <label for="keepEX">「EX」をテキストに残す</label>
+              <label for="keepEX" class="block w-[12rem]">「EX」をテキストに残す</label>
             </div>
-            <div class="mr-8">
+            <div class="mr-8 flex">
               <input type="checkbox" id="keepNo" value="No."/>
-              <label for="keepNo">「No.」をテキストに残す</label>
+              <label for="keepNo" class="block w-[12rem]">「No.」をテキストに残す</label>
             </div>
-          </div>
-
-          <div class="row-span-2 flex justify-end">
-            <button 
-              class="p-2 bg-sky-800 text-white rounded hover:bg-sky-200 w-48 h-16"
-              onclick="handleResetClick(event)"
-            >
-              初期値に戻す
-            </button>
           </div>
 
           <div class="flex mb-1">
-            <div class="mr-8">
+            <div class="mr-8 flex">
               <input type="checkbox" id="newLineWithEffectNo"/>
-              <label for="newLineWithEffectNo">効果番号 (①～⑨) の手前で改行する</label>
+              <label for="newLineWithEffectNo" class="block w-[20rem]">効果番号 (①～⑨) の手前で改行する</label>
             </div>
-            <div class="mr-8">
+            <div class="mr-8 flex">
               <input type="checkbox" id="newLineWithPeriod"/>
-              <label for="newLineWithPeriod">句点 (。) で改行する</label>
+              <label for="newLineWithPeriod" class="block w-[20rem]">句点 (。) で改行する</label>
             </div>
           </div>
         </div>
+      </div>
+      
+      <div class="flex justify-end">
+        <button 
+          class="p-2 bg-sky-800 text-white rounded hover:bg-sky-200 w-48 h-16"
+          onclick="handleResetClick(event)"
+        >
+          初期値に戻す
+        </button>
       </div>
     </section>
 
